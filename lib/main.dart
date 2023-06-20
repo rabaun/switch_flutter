@@ -29,7 +29,6 @@ class _SwitchExampleState extends State<SwitchExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: (light) ? Colors.deepPurple : Colors.white,
         appBar: AppBar(title: const Text('Switch Sample')),
         body: Center(
             child: Column(
@@ -47,17 +46,20 @@ class _SwitchExampleState extends State<SwitchExample> {
                 });
               },
             ),
-            ElevatedButton(
-              child: const Text(
-                'Next',
-                style: TextStyle(fontSize: 24.0),
+            Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: ElevatedButton(
+                child: const Text(
+                  'Next',
+                  style: TextStyle(fontSize: 24.0),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => NewScreen(
+                            light: light,
+                          )));
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => NewScreen(
-                          light: light,
-                        )));
-              },
             ),
           ],
         )));
